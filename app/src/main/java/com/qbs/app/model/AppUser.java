@@ -33,17 +33,15 @@ public class AppUser implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole userRole;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
-    public AppUser(String firstName, String lastName, String email, String password, AppUserRole userRole, Boolean locked, Boolean enabled) {
+    public AppUser(String firstName, String lastName, String email, String password, AppUserRole userRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.userRole = userRole;
-        this.locked = locked;
-        this.enabled = enabled;
     }
 
     @Override

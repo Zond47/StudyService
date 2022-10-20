@@ -25,6 +25,8 @@ public class WebSecurityConfig{
                 .authorizeRequests()
                 .antMatchers("/api/v*/registration/**")
                 .permitAll()
+                .antMatchers("/h2-console/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated().and()
                 .formLogin();

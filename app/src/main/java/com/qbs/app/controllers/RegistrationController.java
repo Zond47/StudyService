@@ -1,12 +1,12 @@
 package com.qbs.app.controllers;
 
+import com.qbs.app.model.AppUser;
 import com.qbs.app.model.requests.RegistrationRequest;
 import com.qbs.app.services.RegistrationService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/registration")
