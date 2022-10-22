@@ -1,0 +1,14 @@
+type Query {
+    users:[AppUser]
+}
+
+type AppUser {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    password: String!
+
+    locked: Boolean!
+    enabled: Boolean!
+}
