@@ -1,7 +1,7 @@
 package com.qbs.app.controllers;
 
 import com.qbs.app.model.AppUser;
-import com.qbs.app.services.AppUserService;
+import com.qbs.app.services.impl.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,11 @@ import java.util.List;
 @RequestMapping("api/v1/students")
 public class StudentController {
 
-    private final AppUserService userService;
+  private final AppUserService userService;
 
-    @GetMapping
-    public List<AppUser> findAll() {
-        return userService.findAllUsers();
-    }
+  @GetMapping
+  public List<AppUser> findAll() {
+    return userService.findAllUsers();
+  }
 
 }

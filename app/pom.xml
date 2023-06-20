@@ -15,6 +15,8 @@
     <description>app</description>
     <properties>
         <java.version>1.8</java.version>
+        <jwt.version>0.9.1</jwt.version>
+        <logstash.version>7.2</logstash.version>
     </properties>
     <dependencies>
         <dependency>
@@ -38,9 +40,19 @@
             <artifactId>spring-boot-starter-graphql</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${jwt.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
