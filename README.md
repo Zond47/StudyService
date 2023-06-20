@@ -8,9 +8,11 @@ FirstName
 LastName
 Email
 Password
+
 **api/v1/registration/confirm**
 Request Param 
 token
+
 **api/v1/login**
 Request Body
 Email
