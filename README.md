@@ -17,3 +17,17 @@ token
 Request Body
 Email
 Password
+
+## Getting Started with Local Development
+
+#### Prerequisites
+
+* [Amazon Corretto Java 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html)
+* [Maven 3.6.3 OR later](https://maven.apache.org/download.cgi)
+
+#### How to run the application locally
+
+From Terminal line run this command:
+```
+   mvn clean spring-boot:run -s settings.xml  -Dspring-boot.run.profiles=local
+```
