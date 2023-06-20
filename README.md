@@ -31,3 +31,11 @@ From Terminal line run this command:
 ```
    mvn clean spring-boot:run -Dspring-boot.run.profiles=local
 ```
+## Technologies Used
+- Spring Boot
+- H2
+
+## Contributing
+
+Eager to contribute to this service?
+Please pull master branch, create new for your feature and raise new PR.
