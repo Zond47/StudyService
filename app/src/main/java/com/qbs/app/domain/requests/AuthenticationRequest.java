@@ -1,4 +1,4 @@
-package com.qbs.app.model.requests;
+package com.qbs.app.domain.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,9 +9,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @AllArgsConstructor
 @ToString
-public class RegistrationRequest {
-  private final String firstName;
-  private final String lastName;
+public class AuthenticationRequest {
   private final String email;
   private final String password;
 }

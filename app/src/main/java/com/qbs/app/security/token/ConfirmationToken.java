@@ -1,6 +1,6 @@
 package com.qbs.app.security.token;
 
-import com.qbs.app.model.AppUser;
+import com.qbs.app.domain.AppUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

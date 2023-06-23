@@ -1,6 +1,6 @@
 package com.qbs.app.controllers;
 
-import com.qbs.app.model.AppUser;
+import com.qbs.app.domain.AppUser;
 import com.qbs.app.services.impl.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

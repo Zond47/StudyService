@@ -1,6 +1,6 @@
 package com.qbs.app.controllers;
 
-import com.qbs.app.model.requests.AuthenticationRequest;
+import com.qbs.app.domain.requests.AuthenticationRequest;
 import com.qbs.app.security.token.JwtTokenUtil;
 import com.qbs.app.services.impl.AppUserService;
 import lombok.AllArgsConstructor;

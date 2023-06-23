@@ -1,7 +1,7 @@
 package com.qbs.app.services;
 
 import com.qbs.app.aspect.LogExecution;
-import com.qbs.app.model.requests.RegistrationRequest;
+import com.qbs.app.domain.requests.RegistrationRequest;
 
 public interface RegistrationService {
   @LogExecution

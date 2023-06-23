@@ -1,6 +1,6 @@
 package com.qbs.app.controllers;
 
-import com.qbs.app.model.requests.RegistrationRequest;
+import com.qbs.app.domain.requests.RegistrationRequest;
 import com.qbs.app.services.RegistrationService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

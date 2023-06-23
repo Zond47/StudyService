@@ -1,6 +1,6 @@
 package com.qbs.app.repositories;
 
-import com.qbs.app.model.AppUser;
+import com.qbs.app.domain.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

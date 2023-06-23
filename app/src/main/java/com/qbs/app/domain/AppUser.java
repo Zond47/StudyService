@@ -1,6 +1,6 @@
-package com.qbs.app.model;
+package com.qbs.app.domain;
 
-import com.qbs.app.model.enums.AppUserRole;
+import com.qbs.app.domain.enums.AppUserRole;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,7 @@ public class AppUser implements UserDetails {
           allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.SEQUENCE,
           generator = "appUsers_sequence")
-  private Long id;
+  private Long Id;
   private String firstName;
   private String lastName;
   private String email;

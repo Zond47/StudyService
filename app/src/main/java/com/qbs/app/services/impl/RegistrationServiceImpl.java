@@ -1,8 +1,8 @@
 package com.qbs.app.services.impl;
 
-import com.qbs.app.model.AppUser;
-import com.qbs.app.model.enums.AppUserRole;
-import com.qbs.app.model.requests.RegistrationRequest;
+import com.qbs.app.domain.AppUser;
+import com.qbs.app.domain.enums.AppUserRole;
+import com.qbs.app.domain.requests.RegistrationRequest;
 import com.qbs.app.security.token.ConfirmationToken;
 import com.qbs.app.services.ConfirmationTokenService;
 import com.qbs.app.services.RegistrationService;

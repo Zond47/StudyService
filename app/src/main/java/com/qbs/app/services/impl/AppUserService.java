@@ -1,7 +1,7 @@
 package com.qbs.app.services.impl;
 
 import com.qbs.app.aspect.LogExecution;
-import com.qbs.app.model.AppUser;
+import com.qbs.app.domain.AppUser;
 import com.qbs.app.repositories.AppUserRepository;
 import com.qbs.app.security.token.ConfirmationToken;
 import com.qbs.app.services.ConfirmationTokenService;
