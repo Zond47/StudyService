@@ -1,5 +1,6 @@
 package com.qbs.app.services;
 
+import com.qbs.app.domain.AppUser;
 import com.qbs.app.domain.Comment;
 import com.qbs.app.domain.Post;
 import com.qbs.app.domain.requests.PostRequest;
@@ -12,6 +13,7 @@ public interface PostService {
 
   Post createPost(final PostRequest postRequest);
 
-  Comment addComment(final Post post,
-                  final Comment comment);
+  Comment addComment(final Post post, final Comment comment);
+
+  Post addExecutor(final Post post, final AppUser user);
 }

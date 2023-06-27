@@ -2,15 +2,15 @@ package com.qbs.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.qbs.app.domain.enums.PostStatus;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -20,37 +20,41 @@ import java.util.List;
 public class Post {
 
   @Id
-  @SequenceGenerator(name = "post_sequence",
-          sequenceName = "posts_sequence",
-          allocationSize = 1)
-  @GeneratedValue(strategy = GenerationType.SEQUENCE,
-          generator = "posts_sequence")
+  @SequenceGenerator(name = "post_sequence", sequenceName = "posts_sequence", allocationSize = 1)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "posts_sequence")
   private Long Id;
-  private String customerId;
-  private String executorId;
+
+  @OneToMany(
+      mappedBy = "userId",
+      cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
+      fetch = FetchType.LAZY)
+  @JsonManagedReference
+  private List<UserPost> users;
+
   @Enumerated(EnumType.STRING)
   private PostStatus status;
+
   private LocalDateTime serviceDate;
   private String jobTags;
   private boolean isFinalPropose;
   private String serviceAddress;
   private BigDecimal proposedPrice;
 
-  @OneToMany(mappedBy="post",
-          cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
-          fetch = FetchType.LAZY)
+  @OneToMany(
+      mappedBy = "post",
+      cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
+      fetch = FetchType.LAZY)
   @JsonManagedReference
   private List<Comment> commentList;
 
-  public Post(final String customerId,
-              final PostStatus status,
-              final LocalDateTime serviceDate,
-              final String jobTags,
-              final boolean isFinalPropose,
-              final String serviceAddress,
-              final BigDecimal proposedPrice) {
-    this.customerId = customerId;
-    this.executorId = null;
+  public Post(
+      final PostStatus status,
+      final LocalDateTime serviceDate,
+      final String jobTags,
+      final boolean isFinalPropose,
+      final String serviceAddress,
+      final BigDecimal proposedPrice) {
+    users = new ArrayList<>();
     this.status = status;
     this.serviceDate = serviceDate;
     this.jobTags = jobTags;
@@ -59,15 +63,4 @@ public class Post {
     this.proposedPrice = proposedPrice;
     this.commentList = null;
   }
-
-  public void addComment(Comment comment) {
-    if (!getCommentList().contains(comment)) {
-      getCommentList().add(comment);
-      if (comment.getPost() != null) {
-        comment.getPost().getCommentList().remove(comment);
-      }
-      comment.setPost(this);
-    }
-  }
-
 }

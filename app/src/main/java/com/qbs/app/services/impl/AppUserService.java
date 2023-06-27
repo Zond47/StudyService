@@ -1,10 +1,16 @@
 package com.qbs.app.services.impl;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 import com.qbs.app.aspect.LogExecution;
 import com.qbs.app.domain.AppUser;
 import com.qbs.app.repositories.AppUserRepository;
 import com.qbs.app.security.token.ConfirmationToken;
 import com.qbs.app.services.ConfirmationTokenService;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,13 +18,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
-import static net.logstash.logback.argument.StructuredArguments.kv;
 
 @AllArgsConstructor
 @Service
@@ -32,7 +31,9 @@ public class AppUserService implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
-    return appUserRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
+    return appUserRepository
+        .findByEmail(email)
+        .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
   }
 
   @LogExecution
@@ -46,12 +47,12 @@ public class AppUserService implements UserDetailsService {
     appUser.setPassword(encodedPassword);
 
     appUserRepository.save(appUser);
+    log.info("User has been saved.");
 
     final String token = UUID.randomUUID().toString();
-    final ConfirmationToken confirmationToken = new ConfirmationToken(token,
-            LocalDateTime.now(),
-            LocalDateTime.now().plusMinutes(15),
-            appUser);
+    final ConfirmationToken confirmationToken =
+        new ConfirmationToken(
+            token, LocalDateTime.now(), LocalDateTime.now().plusMinutes(15), appUser);
     confirmationTokenService.saveConfirmationToken(confirmationToken);
     log.info("Token has been created. {}", kv("token", token));
     // TODO: Send EMAIL
@@ -67,4 +68,7 @@ public class AppUserService implements UserDetailsService {
     return appUserRepository.findAll();
   }
 
+  public Optional<AppUser> findUserById(final Long Id) {
+    return appUserRepository.findById(Id);
+  }
 }

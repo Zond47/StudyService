@@ -10,11 +10,10 @@ import com.qbs.app.domain.requests.CommentRequest;
 import com.qbs.app.repositories.CommentRepository;
 import com.qbs.app.services.CommentService;
 import com.qbs.app.services.PostService;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @AllArgsConstructor
 @Service
@@ -36,15 +35,23 @@ public class CommentServiceImpl implements CommentService {
     log.info("Creating comment.");
     final Post post = validateRequest(commentRequest);
     log.info("Successfully validated comment request.");
-    final Comment comment = commentRepository.save(
-            new Comment(post,
-                    commentRequest.getExecutorId(),
-                    commentRequest.getProposedPrice(),
-                    CommentStatus.CREATED));
+    final Comment comment =
+        commentRepository.save(
+            new Comment(
+                post,
+                commentRequest.getExecutorId(),
+                commentRequest.getProposedPrice(),
+                CommentStatus.CREATED));
     postService.addComment(post, comment);
     return comment;
   }
 
+  /**
+   * Validates request and returns Post object.
+   *
+   * @param commentRequest Request to create Comment
+   * @return Post
+   */
   private Post validateRequest(final CommentRequest commentRequest) {
     log.info("Validating comment request.");
     final Long postId = Long.valueOf(commentRequest.getPostId());
@@ -55,7 +62,7 @@ public class CommentServiceImpl implements CommentService {
     if (post.get().isFinalPropose()) {
       throw new CommentException("Post is with final propose!");
     }
-    if (post.get().getCustomerId().equals(commentRequest.getExecutorId())) {
+    if (post.get().getUsers().equals(commentRequest.getExecutorId())) {
       throw new CommentException("Customer cannot leave negotiation comment to own post!");
     }
     return post.get();

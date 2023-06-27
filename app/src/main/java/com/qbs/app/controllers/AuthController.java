@@ -1,8 +1,10 @@
 package com.qbs.app.controllers;
 
+import com.qbs.app.domain.AppUser;
 import com.qbs.app.domain.requests.AuthenticationRequest;
 import com.qbs.app.security.token.JwtTokenUtil;
 import com.qbs.app.services.impl.AppUserService;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -35,9 +37,15 @@ public class AuthController {
     return userService.loadUserByUsername(email);
   }
 
+  @GetMapping("/id")
+  public Optional<AppUser> fetchUserById(@PathVariable("id") final Long Id) {
+    return userService.findUserById(Id);
+  }
+
   private void authenticate(final String username, final String password) throws Exception {
     try {
-      authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+      authenticationManager.authenticate(
+          new UsernamePasswordAuthenticationToken(username, password));
     } catch (final DisabledException e) {
       throw new Exception("USER_DISABLED", e);
     } catch (final BadCredentialsException e) {
