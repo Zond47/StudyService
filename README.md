@@ -1,22 +1,32 @@
 # StudyService
 
-Currently service has 3 main endpoints:
+Currently service has 4 main endpoints:
 
-**/api/v1/registration**
+**POST** **/api/v1/registration**
 Request Body
 FirstName
 LastName
 Email
 Password
 
-**api/v1/registration/confirm**
+**GET** **api/v1/registration/confirm**
 Request Param 
 token
 
-**api/v1/login**
+**POST** **api/v1/login**
 Request Body
 Email
 Password
+
+**GET** **api/v1/login/userDetails**
+Request Param
+email
+
+
+## ERD Data Model
+
+![ERD](https://github.com/Zond47/StudyService/assets/32875607/bc098510-4f32-477a-b5f8-0c183a21c759)
+
 
 ## Getting Started with Local Development
 
