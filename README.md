@@ -18,6 +18,11 @@ Request Body
 Email
 Password
 
+## ERD Data Model
+
+![ERD](https://github.com/Zond47/StudyService/assets/32875607/bc098510-4f32-477a-b5f8-0c183a21c759)
+
+
 ## Getting Started with Local Development
 
 #### Prerequisites
