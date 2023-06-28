@@ -28,17 +28,21 @@ public class Comment {
   @JoinColumn(name="post_id", nullable=false)
   @JsonBackReference
   private Post post;
-  private String executorId;
+
+  @ManyToOne
+  @JoinColumn(name="appUser_id", nullable=false)
+  @JsonBackReference
+  private AppUser executor;
   private BigDecimal proposedPrice;
   @Enumerated(EnumType.STRING)
   private CommentStatus commentStatus;
 
   public Comment(final Post post,
-                 final String executorId,
+                 final AppUser executor,
                  final BigDecimal proposedPrice,
                  final CommentStatus commentStatus) {
     this.post = post;
-    this.executorId = executorId;
+    this.executor = executor;
     this.proposedPrice = proposedPrice;
     this.commentStatus = commentStatus;
   }

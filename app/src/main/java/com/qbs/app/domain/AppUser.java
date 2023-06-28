@@ -45,12 +45,20 @@ public class AppUser implements UserDetails {
   @JsonManagedReference
   private List<UserPost> posts;
 
+  @OneToMany(
+          mappedBy = "executor",
+          cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
+          fetch = FetchType.LAZY)
+  @JsonManagedReference
+  private List<Comment> comments;
+
   private Boolean locked = false;
   private Boolean enabled = false;
 
   public AppUser(
       String firstName, String lastName, String email, String password, AppUserRole userRole) {
     this.posts = new ArrayList<>();
+    this.comments = new ArrayList<>();
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;

@@ -4,7 +4,7 @@ import static net.logstash.logback.argument.StructuredArguments.kv;
 
 import com.qbs.app.aspect.LogExecution;
 import com.qbs.app.domain.AppUser;
-import com.qbs.app.repositories.AppUserRepository;
+import com.qbs.app.domain.Comment;import com.qbs.app.repositories.AppUserRepository;
 import com.qbs.app.security.token.ConfirmationToken;
 import com.qbs.app.services.ConfirmationTokenService;
 import java.time.LocalDateTime;
@@ -58,6 +58,13 @@ public class AppUserService implements UserDetailsService {
     // TODO: Send EMAIL
 
     return token;
+  }
+
+  public AppUser addComment(final AppUser user, final Comment comment) {
+    if (!user.getComments().contains(comment)) {
+      user.getComments().add(comment);
+    }
+    return user;
   }
 
   public void enableAppUser(final String email) {
