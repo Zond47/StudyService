@@ -3,7 +3,7 @@ package com.qbs.app.services.impl;
 import static net.logstash.logback.argument.StructuredArguments.kv;
 
 import com.qbs.app.aspect.LogExecution;
-import com.qbs.app.domain.AppUser;
+import com.qbs.app.common.exception.AppUserException;import com.qbs.app.domain.AppUser;
 import com.qbs.app.domain.Comment;import com.qbs.app.repositories.AppUserRepository;
 import com.qbs.app.security.token.ConfirmationToken;
 import com.qbs.app.services.ConfirmationTokenService;
@@ -60,11 +60,16 @@ public class AppUserService implements UserDetailsService {
     return token;
   }
 
-  public AppUser addComment(final AppUser user, final Comment comment) {
-    if (!user.getComments().contains(comment)) {
-      user.getComments().add(comment);
+  @LogExecution
+  public AppUser addComment(final Long id, final Comment comment) {
+    final Optional<AppUser> user = appUserRepository.findById(id);
+    if (user.isEmpty()) {
+      throw new AppUserException("User not found!");
     }
-    return user;
+    if (!user.get().getComments().contains(comment)) {
+      user.get().getComments().add(comment);
+    }
+    return user.get();
   }
 
   public void enableAppUser(final String email) {

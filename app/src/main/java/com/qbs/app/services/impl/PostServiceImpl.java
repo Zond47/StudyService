@@ -32,9 +32,9 @@ public class PostServiceImpl implements PostService {
 
   @LogExecution
   @Override
-  public Post createPost(final PostRequest request) {
+  public Post createPost(final PostRequest request, final String Id) {
     log.info("Creating Post.");
-    final AppUser user = validateRequest(request);
+    final AppUser user = validateRequest(request, Id);
     log.info("Successfully validated post request.");
     final Post post =
         postRepository.save(
@@ -65,11 +65,12 @@ public class PostServiceImpl implements PostService {
    * Validates request and returns AppUser object.
    *
    * @param request Request to create Post
+   * @param Id UserId
    * @return AppUser user
    */
-  private AppUser validateRequest(PostRequest request) {
-    final Long id = Long.valueOf(request.getCustomerId());
-    Optional<AppUser> customer = userService.findUserById(id);
+  private AppUser validateRequest(final PostRequest request, final String Id) {
+    final Long id = Long.valueOf(Id);
+    final Optional<AppUser> customer = userService.findUserById(id);
     log.info("Validating post request.");
     final int priceCompare = request.getProposedPrice().compareTo(BigDecimal.ZERO);
     if (request.getServiceDate().isBefore(now())

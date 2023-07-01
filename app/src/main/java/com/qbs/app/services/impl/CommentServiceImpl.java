@@ -34,32 +34,34 @@ public class CommentServiceImpl implements CommentService {
 
   @LogExecution
   @Override
-  public Comment createComment(final CommentRequest commentRequest) {
+  public Comment createComment(final CommentRequest commentRequest,
+                               final String id,
+                               final String postId) {
     log.info("Creating comment.");
-    final Post post = validateRequest(commentRequest);
+    final Post post = validateRequest(id, postId);
     log.info("Successfully validated comment request.");
     final AppUser executor =
-        userService.findUserById(Long.valueOf(commentRequest.getExecutorId())).get();
+        userService.findUserById(Long.valueOf(id)).get();
     final Comment comment =
         commentRepository.save(
             new Comment(post, executor, commentRequest.getProposedPrice(), CommentStatus.CREATED));
     postService.addComment(post, comment);
-    userService.addComment(executor, comment);
+    userService.addComment(executor.getId(), comment);
     return comment;
   }
 
   /**
    * Validates request and returns Post object.
    *
-   * @param commentRequest Request to create Comment
+   * @param id User Id
+   * @param postId Post id
    * @return Post
    */
-  private Post validateRequest(final CommentRequest commentRequest) {
+  private Post validateRequest(final String id,
+                               final String postId) {
     log.info("Validating comment request.");
-    final Long postId = Long.valueOf(commentRequest.getPostId());
-    final Optional<Post> post = postService.findById(postId);
-    final Long executorId = Long.valueOf(commentRequest.getExecutorId());
-    final Optional<AppUser> appUser = userService.findUserById(executorId);
+    final Optional<Post> post = postService.findById(Long.valueOf(postId));
+    final Optional<AppUser> appUser = userService.findUserById(Long.valueOf(id));
     if (appUser.isEmpty()) {
       throw new AppUserException("No user found!");
     }
@@ -69,7 +71,8 @@ public class CommentServiceImpl implements CommentService {
     if (post.get().isFinalPropose()) {
       throw new CommentException("Post is with final propose!");
     }
-    if (post.get().getUsers().equals(commentRequest.getExecutorId())) {
+    // TODO: fix
+    if (post.get().getUsers().equals(id)) {
       throw new CommentException("Customer cannot leave negotiation comment to own post!");
     }
     return post.get();

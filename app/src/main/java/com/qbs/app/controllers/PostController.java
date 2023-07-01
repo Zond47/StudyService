@@ -15,8 +15,9 @@ public class PostController {
   private final PostService postService;
 
   @PostMapping
-  public Post createPost(@RequestBody final PostRequest request) {
-    return postService.createPost(request);
+  public Post createPost(@RequestBody final PostRequest request,
+                        @RequestParam("id") final String Id) {
+    return postService.createPost(request, Id);
   }
 
   @PutMapping

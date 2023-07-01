@@ -9,5 +9,5 @@ public interface CommentService {
 
   Optional<Comment> findById(final Long Id);
 
-  Comment createComment(final CommentRequest commentRequest);
+  Comment createComment(final CommentRequest commentRequest, final String id, final String postId);
 }

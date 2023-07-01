@@ -15,12 +15,16 @@ public class CommentController {
   private final CommentService commentService;
 
   @PostMapping
-  public Comment create(@RequestBody final CommentRequest request) {
-    return commentService.createComment(request);
+  public Comment create(@RequestBody final CommentRequest request,
+                        @RequestParam("id") final String id,
+                        @RequestParam("post") final String postId) {
+    return commentService.createComment(request, id ,postId);
   }
 
   @GetMapping
   public Optional<Comment> findById(@RequestParam("id") final Long Id) {
     return commentService.findById(Id);
   }
+
+
 }

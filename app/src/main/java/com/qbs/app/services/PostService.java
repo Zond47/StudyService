@@ -11,7 +11,7 @@ public interface PostService {
 
   Optional<Post> findById(final Long Id);
 
-  Post createPost(final PostRequest postRequest);
+  Post createPost(final PostRequest postRequest, final String Id);
 
   Comment addComment(final Post post, final Comment comment);
 
