@@ -16,6 +16,7 @@
     <properties>
         <java.version>11</java.version>
         <jwt.version>0.9.1</jwt.version>
+        <mysql-connector.version>8.0.33</mysql-connector.version>
         <logstash.version>7.2</logstash.version>
     </properties>
     <dependencies>
@@ -41,9 +42,14 @@
             <version>${jwt.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>${mysql-connector.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
