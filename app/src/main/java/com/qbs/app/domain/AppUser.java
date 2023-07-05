@@ -7,18 +7,16 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import javax.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Getter
-@Setter
+@Builder
 @EqualsAndHashCode
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class AppUser implements UserDetails {
 
@@ -100,5 +98,9 @@ public class AppUser implements UserDetails {
   @Override
   public boolean isEnabled() {
     return enabled;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 }

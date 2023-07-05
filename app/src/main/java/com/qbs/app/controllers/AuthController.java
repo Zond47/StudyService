@@ -33,12 +33,12 @@ public class AuthController {
   }
 
   @GetMapping("/userDetails")
-  public UserDetails fetchUserByEmail(@RequestParam("email") final String email) {
+  public UserDetails findUserByEmail(@RequestParam("email") final String email) {
     return userService.loadUserByUsername(email);
   }
 
   @GetMapping("/id")
-  public Optional<AppUser> fetchUserById(@PathVariable("id") final Long Id) {
+  public Optional<AppUser> findUserById(@PathVariable("id") final Long Id) {
     return userService.findUserById(Id);
   }
 

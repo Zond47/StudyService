@@ -1,11 +1,9 @@
 package com.qbs.app.domain.requests;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
+@Builder
 @EqualsAndHashCode
 @AllArgsConstructor
 @ToString

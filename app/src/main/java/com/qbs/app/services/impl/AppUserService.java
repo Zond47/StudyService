@@ -36,6 +36,12 @@ public class AppUserService implements UserDetailsService {
         .orElseThrow(() -> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, email)));
   }
 
+  /**
+   * Sign up user and returns registrationConfirmationToken
+   *
+   * @param appUser user
+   * @return Token registrationConfirmationToken
+   * */
   @LogExecution
   public String signUpUser(final AppUser appUser) {
     log.info("Attempt to signUp user.");
@@ -43,9 +49,10 @@ public class AppUserService implements UserDetailsService {
     if (user.isPresent()) {
       throw new IllegalStateException("Email already registered!");
     }
+    log.info("Encoding password.");
     final String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
     appUser.setPassword(encodedPassword);
-
+    log.info("Encoded password has been assigned to user.");
     appUserRepository.save(appUser);
     log.info("User has been saved.");
 

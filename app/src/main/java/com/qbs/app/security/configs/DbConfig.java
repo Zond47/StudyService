@@ -13,10 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
 public class DbConfig {
 
-  public static SessionFactory getSessionFactory() {
+/*  public static SessionFactory getSessionFactory() {
 
     ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
             .applySettings(dbSettings())
@@ -40,7 +39,7 @@ public class DbConfig {
     settings.put("connection.driver_class", "com.mysql.cj.jdbc.Driver");
     settings.put("dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
     settings.put("hibernate.connection.username", "root");
-    settings.put("hibernate.connection.password", "amAnda1092");
+    settings.put("hibernate.connection.password", "4gz8xzbj6OxVwbVkES");
     //settings.put("hibernate.current_session_context_class", "thread");
     settings.put("hibernate.show_sql", "true");
     //settings.put("hibernate.format_sql", "true");
@@ -53,7 +52,7 @@ public class DbConfig {
             .driverClassName("com.mysql.cj.jdbc.Driver")
             .url("jdbc:mysql://localhost:3306/appdb?useSSL=false")
             .username("root")
-            .password("amAnda1092")
+            .password("4gz8xzbj6OxVwbVkES")
             .build();
-  }
+  }*/
 }
