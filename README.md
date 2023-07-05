@@ -1,6 +1,6 @@
 # StudyService
 
-Currently service has 4 main endpoints:
+Currently service has 8 main endpoints:
 
 **POST** **/api/v1/registration**
 Request Body
@@ -22,6 +22,30 @@ Password
 Request Param
 email
 
+**POST** **api/v1/posts**
+Request Param
+userId
+Request Body
+serviceDate (> now())
+jobTags
+isFinalPropose
+serviceAddress
+proposedPrice
+
+**GET** **api/v1/posts**
+Request Param
+Id
+
+**POST** **api/v1/comments**
+Request Param
+userId
+postId
+RequestBody
+proposedPrice
+
+**GET** **api/v1/comments**
+Request Param
+Id
 
 ## ERD Data Model
 
@@ -43,7 +67,7 @@ From Terminal line run this command:
 ```
 ## Technologies Used
 - Spring Boot
-- H2
+- MySQL
 
 ## Contributing
 
