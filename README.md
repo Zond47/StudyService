@@ -56,7 +56,7 @@ Id
 
 #### Prerequisites
 
-* [Amazon Corretto Java 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/what-is-corretto-11.html)
+* [Amazon Corretto Java 17](https://docs.aws.amazon.com/corretto/latest/corretto-17-ug/downloads-list.html)
 * [Maven 3.6.3 OR later](https://maven.apache.org/download.cgi)
 
 #### How to run the application locally
