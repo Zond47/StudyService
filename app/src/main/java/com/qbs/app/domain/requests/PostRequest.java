@@ -9,11 +9,12 @@ import java.time.LocalDateTime;
 @Builder
 @EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class PostRequest {
-  private final String customerId;
-  private final LocalDateTime serviceDate;
-  private final String jobTags;
+  private String customerId;
+  private LocalDateTime serviceDate;
+  private String jobTags;
   private boolean isFinalPropose;
   private String serviceAddress;
   private BigDecimal proposedPrice;

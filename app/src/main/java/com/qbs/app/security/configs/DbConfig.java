@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;import java.util.HashMap;
 import java.util.Map;
 
+@Configuration
 public class DbConfig {
 
 /*  public static SessionFactory getSessionFactory() {
@@ -45,14 +46,14 @@ public class DbConfig {
     //settings.put("hibernate.format_sql", "true");
     return settings;
   }
-
+*/
   @Bean
   public DataSource getDataSource() {
     return DataSourceBuilder.create()
             .driverClassName("com.mysql.cj.jdbc.Driver")
-            .url("jdbc:mysql://localhost:3306/appdb?useSSL=false")
+            .url("jdbc:mysql://localhost:3306/appdb")
             .username("root")
-            .password("4gz8xzbj6OxVwbVkES")
+            .password("amAnda1092")
             .build();
-  }*/
+  }
 }
