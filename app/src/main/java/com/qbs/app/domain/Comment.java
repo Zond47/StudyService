@@ -1,12 +1,13 @@
 package com.qbs.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.qbs.app.domain.enums.CommentStatus;
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Getter
@@ -25,12 +26,12 @@ public class Comment {
   private Long Id;
 
   @ManyToOne
-  @JoinColumn(name="post_id", nullable=false)
+  @JoinColumn(name = "post_id", nullable = false)
   @JsonBackReference
   private Post post;
 
   @ManyToOne
-  @JoinColumn(name="appUser_id", nullable=false)
+  @JoinColumn(name = "appUser_id", nullable = false)
   @JsonBackReference
   private AppUser executor;
   private BigDecimal proposedPrice;

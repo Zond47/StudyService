@@ -5,7 +5,7 @@
     <groupId>com.qbs.v1</groupId>
     <artifactId>task-done-app</artifactId>
     <version>0.0.1</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <!-- <name>app</name> -->
     <!--<description>app</description> -->
@@ -18,7 +18,7 @@
 
         <start-class>com.qbs.app.AppApplication.java</start-class>
 
-        <spring-boot.version>2.7.13</spring-boot.version>
+        <spring-boot.version>3.1.0</spring-boot.version>
         <!--<skipIntegrationTests>true</skipIntegrationTests>-->
         <skipTests>false</skipTests>
 

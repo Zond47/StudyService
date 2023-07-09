@@ -21,8 +21,10 @@ public class WebSecurityConfig {
 
   @Bean
   public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
-    http.csrf().disable()
-            .authorizeRequests().antMatchers("/").permitAll();
+    http.authorizeHttpRequests((authorize) -> authorize
+                    .anyRequest().permitAll()
+            );
+    http.csrf().disable();
     return http.build();
         /* http.csrf().disable()
                 .authorizeRequests()
@@ -44,4 +46,5 @@ public class WebSecurityConfig {
             .passwordEncoder(bCryptPasswordEncoder);
     return authenticationManagerBuilder.build();
   }
+
 }

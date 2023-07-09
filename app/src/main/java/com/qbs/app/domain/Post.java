@@ -6,7 +6,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
+
+import jakarta.persistence.SequenceGenerator;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,7 @@ public class Post {
   private Long Id;
 
   @OneToMany(
-      mappedBy = "userId",
+      mappedBy = "postId",
       cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   @JsonManagedReference

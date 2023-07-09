@@ -3,7 +3,7 @@ package com.qbs.app.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.qbs.app.domain.enums.AppUserRole;
 import java.io.Serializable;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Data

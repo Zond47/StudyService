@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -37,7 +37,7 @@ public class AppUser implements UserDetails {
   private AppUserRole userRole;
 
   @OneToMany(
-      mappedBy = "postId",
+      mappedBy = "userId",
       cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE},
       fetch = FetchType.LAZY)
   @JsonManagedReference
