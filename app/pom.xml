@@ -22,7 +22,7 @@
         <!--<skipIntegrationTests>true</skipIntegrationTests>-->
         <skipTests>false</skipTests>
 
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <jaxb-api.version>2.3.0</jaxb-api.version>
         <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
         <jwt.version>0.9.1</jwt.version>
@@ -31,8 +31,8 @@
         <logstash.version>7.2</logstash.version>
 
         <dockerfile-maven-plugin.version>1.4.7</dockerfile-maven-plugin.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
