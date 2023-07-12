@@ -2,7 +2,9 @@
 
 Currently service has 8 main endpoints:
 
+```http
 **POST** **/api/v1/registration**
+```
 
 Request Body:
 | Parameter | Type | Description |
@@ -12,14 +14,18 @@ Request Body:
 | `email` | `string` | **Required**. User email. |
 | `password` | `string` | **Required**. User password. |
 
+```http
 **GET** **api/v1/registration/confirm**
+```
 
 Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `token` | `string` | **Required**. User confirmation token. |
- 
+
+```http
 **POST** **api/v1/login**
+```
 
 Request Body:
 | Parameter | Type | Description |
@@ -27,14 +33,18 @@ Request Body:
 | `email` | `string` | **Required**. User email. |
 | `password` | `string` | **Required**. User password. |
 
+```http
 **GET** **api/v1/login/userDetails**
+```
 
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `email` | `string` | **Required**. User email. |
 
+```http
 **POST** **api/v1/posts**
+```
 
 Request Param:
 | Parameter | Type | Description |
@@ -50,14 +60,18 @@ Request Body:
 | `serviceAddress` | `string` | **Required**. Address where work must be completed. |
 | `proposedPrice` | `BigDecimal` | **Required**. User proposed price. |
 
+```http
 **GET** **api/v1/posts**
+```
 
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `Id` | `string` | **Required**. Post id. |
 
+```http
 **POST** **api/v1/comments**
+```
 
 Request Param:
 | Parameter | Type | Description |
@@ -70,7 +84,9 @@ Request Body:
 | :--- | :--- | :--- |
 | `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
+```http
 **GET** **api/v1/comments**
+```
 
 Request Param:
 | Parameter | Type | Description |
