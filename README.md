@@ -1,9 +1,12 @@
 # StudyService
 
+## Introduction
+This StudyService 
+
 Currently service has 8 main endpoints:
 
 ```http
-**POST** **/api/v1/registration**
+**POST** /api/v1/registration
 ```
 
 Request Body:
@@ -15,7 +18,7 @@ Request Body:
 | `password` | `string` | **Required**. User password. |
 
 ```http
-**GET** **api/v1/registration/confirm**
+**GET** api/v1/registration/confirm
 ```
 
 Request Body:
@@ -24,7 +27,7 @@ Request Body:
 | `token` | `string` | **Required**. User confirmation token. |
 
 ```http
-**POST** **api/v1/login**
+**POST** api/v1/login
 ```
 
 Request Body:
@@ -34,7 +37,7 @@ Request Body:
 | `password` | `string` | **Required**. User password. |
 
 ```http
-**GET** **api/v1/login/userDetails**
+**GET** api/v1/login/userDetails
 ```
 
 Request Param:
@@ -43,7 +46,7 @@ Request Param:
 | `email` | `string` | **Required**. User email. |
 
 ```http
-**POST** **api/v1/posts**
+**POST** api/v1/posts
 ```
 
 Request Param:
@@ -61,7 +64,7 @@ Request Body:
 | `proposedPrice` | `BigDecimal` | **Required**. User proposed price. |
 
 ```http
-**GET** **api/v1/posts**
+**GET** api/v1/posts
 ```
 
 Request Param:
@@ -70,7 +73,7 @@ Request Param:
 | `Id` | `string` | **Required**. Post id. |
 
 ```http
-**POST** **api/v1/comments**
+**POST** api/v1/comments
 ```
 
 Request Param:
@@ -85,7 +88,7 @@ Request Body:
 | `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
 ```http
-**GET** **api/v1/comments**
+**GET** api/v1/comments
 ```
 
 Request Param:
