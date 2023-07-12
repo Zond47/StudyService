@@ -3,49 +3,68 @@
 Currently service has 8 main endpoints:
 
 **POST** **/api/v1/registration**
-Request Body
-FirstName
-LastName
-Email
-Password
+Request Body:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `firstName` | `string` | **Required**. User first name. |
+| `lastName` | `string` | **Required**. User last name. |
+| `email` | `string` | **Required**. User email. |
+| `password` | `string` | **Required**. User password. |
 
 **GET** **api/v1/registration/confirm**
-Request Param 
-token
-
+Request Body:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `token` | `string` | **Required**. User confirmation token. |
+ 
 **POST** **api/v1/login**
-Request Body
-Email
-Password
+Request Body:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `email` | `string` | **Required**. User email. |
+| `password` | `string` | **Required**. User password. |
 
 **GET** **api/v1/login/userDetails**
-Request Param
-email
+Request Param:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `email` | `string` | **Required**. User email. |
 
 **POST** **api/v1/posts**
-Request Param
-userId
-Request Body
-serviceDate (> now())
-jobTags
-isFinalPropose
-serviceAddress
-proposedPrice
+**Request Param**:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `userId` | `string` | **Required**. User id. |
+**Request Body**:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `serviceDate` | `LocalDateTime` | **Required(> now)**. Deadline by which work must be completed. |
+| `jobTags` | `string` | **Required**. Type of jobs. |
+| `isFinalPropose` | `string` | **Required**. Does this post negotiatable in terms of price. |
+| `serviceAddress` | `string` | **Required**. Address where work must be completed. |
+| `proposedPrice` | `BigDecimal` | **Required**. User proposed price. |
 
 **GET** **api/v1/posts**
-Request Param
-Id
+**Request Param**:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `string` | **Required**. Post id. |
 
 **POST** **api/v1/comments**
-Request Param
-userId
-postId
-RequestBody
-proposedPrice
+**Request Param**:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `userId` | `string` | **Required**. User id. |
+| `postId` | `string` | **Required**. Post id. |
+**Request Body**:
+| Parameter | Type | Description |
+| `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
 **GET** **api/v1/comments**
-Request Param
-Id
+Request Param:
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `Id` | `string` | **Required**. Comment Id. |
 
 ## ERD Data Model
 
@@ -69,8 +88,11 @@ From Terminal line run this command:
    mvn clean spring-boot:run -Dspring-boot.run.profiles=local
 ```
 ## Technologies Used
+- Java 17
 - Spring Boot
+- Maven
 - MySQL
+- AWS CloudFormation, CodePipeline, CodeBuild, CodeDeploy, Fargate, ECR, EC2, ALB, VPC
 
 ## Contributing
 
