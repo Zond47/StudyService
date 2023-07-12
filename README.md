@@ -31,11 +31,11 @@ Request Param:
 | `email` | `string` | **Required**. User email. |
 
 **POST** **api/v1/posts**
-**Request Param**:
+Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `userId` | `string` | **Required**. User id. |
-**Request Body**:
+Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `serviceDate` | `LocalDateTime` | **Required(> now)**. Deadline by which work must be completed. |
@@ -45,18 +45,18 @@ Request Param:
 | `proposedPrice` | `BigDecimal` | **Required**. User proposed price. |
 
 **GET** **api/v1/posts**
-**Request Param**:
+Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `Id` | `string` | **Required**. Post id. |
 
 **POST** **api/v1/comments**
-**Request Param**:
+Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `userId` | `string` | **Required**. User id. |
 | `postId` | `string` | **Required**. Post id. |
-**Request Body**:
+Request Body:
 | Parameter | Type | Description |
 | `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
