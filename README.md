@@ -3,6 +3,7 @@
 Currently service has 8 main endpoints:
 
 **POST** **/api/v1/registration**
+
 Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -12,12 +13,14 @@ Request Body:
 | `password` | `string` | **Required**. User password. |
 
 **GET** **api/v1/registration/confirm**
+
 Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `token` | `string` | **Required**. User confirmation token. |
  
 **POST** **api/v1/login**
+
 Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -25,6 +28,7 @@ Request Body:
 | `password` | `string` | **Required**. User password. |
 
 **GET** **api/v1/login/userDetails**
+
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -46,26 +50,43 @@ Request Body:
 | `proposedPrice` | `BigDecimal` | **Required**. User proposed price. |
 
 **GET** **api/v1/posts**
+
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `Id` | `string` | **Required**. Post id. |
 
 **POST** **api/v1/comments**
+
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `userId` | `string` | **Required**. User id. |
 | `postId` | `string` | **Required**. Post id. |
+
 Request Body:
 | Parameter | Type | Description |
 | `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
 **GET** **api/v1/comments**
+
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `Id` | `string` | **Required**. Comment Id. |
+
+## Status Codes
+
+App returns the following status codes in its API:
+
+| Status Code | Description |
+| :--- | :--- |
+| 200 | `OK` |
+| 201 | `CREATED` |
+| 400 | `BAD REQUEST` |
+| 404 | `NOT FOUND` |
+| 500 | `INTERNAL SERVER ERROR` |
+
 
 ## ERD Data Model
 
