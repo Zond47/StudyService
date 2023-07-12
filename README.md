@@ -51,6 +51,9 @@ Id
 
 ![ERD](https://github.com/Zond47/StudyService/assets/32875607/bc098510-4f32-477a-b5f8-0c183a21c759)
 
+## AWS Network Diagram
+
+![AWSND](https://github.com/Zond47/StudyService/assets/32875607/45d16e0a-0868-4b32-85cd-9ecfc29ae247)
 
 ## Getting Started with Local Development
 
