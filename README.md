@@ -35,6 +35,7 @@ Request Param:
 | `email` | `string` | **Required**. User email. |
 
 **POST** **api/v1/posts**
+
 Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -66,6 +67,7 @@ Request Param:
 
 Request Body:
 | Parameter | Type | Description |
+| :--- | :--- | :--- |
 | `proposedPrice` | `BigDecimal` | **Required**. Executor proposed price. |
 
 **GET** **api/v1/comments**
