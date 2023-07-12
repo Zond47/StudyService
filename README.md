@@ -35,6 +35,7 @@ Request Param:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | `userId` | `string` | **Required**. User id. |
+
 Request Body:
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
