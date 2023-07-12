@@ -1,7 +1,10 @@
 # StudyService
 
 ## Introduction
-This StudyService 
+This StudyService consist of API for registration and login in order to create job posts and to write comments for the posts.
+Also this repository contains two Cloudformation templates for better CI/CD practices.
+
+## API
 
 Currently service has 8 main endpoints:
 
